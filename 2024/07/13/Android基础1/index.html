@@ -1,0 +1,209 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Android基础1 | Hexo</title><meta name="author" content="qq"><meta name="copyright" content="qq"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Android项目结构Android:列出我们经常会用到的内容，比如：Java文件，布局文件等等。 1、mainifests：其中显示的是安卓的全局描述文件。 2、java：显示java的源码文件。 3、res：显示的是资源文件，比如常见的类文件，图片资源文件等等。 Project:列出我们项目当中的全部文件 创建AVD并启动安卓模拟器模拟器就是模拟手机，平板等安卓设备。在这个模拟器上面测试设备，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android基础1">
+<meta property="og:url" content="http://example.com/2024/07/13/Android%E5%9F%BA%E7%A1%801/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Android项目结构Android:列出我们经常会用到的内容，比如：Java文件，布局文件等等。 1、mainifests：其中显示的是安卓的全局描述文件。 2、java：显示java的源码文件。 3、res：显示的是资源文件，比如常见的类文件，图片资源文件等等。 Project:列出我们项目当中的全部文件 创建AVD并启动安卓模拟器模拟器就是模拟手机，平板等安卓设备。在这个模拟器上面测试设备，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
+<meta property="article:published_time" content="2024-07-13T15:29:28.000Z">
+<meta property="article:modified_time" content="2024-07-13T15:29:58.021Z">
+<meta property="article:author" content="qq">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/07/13/Android%E5%9F%BA%E7%A1%801/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Android基础1',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-07-13 23:29:58'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/image/tx.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Hexo"><img class="site-icon" src="/image/test.gif"/><span class="site-name">Hexo</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Android基础1</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-07-13T15:29:28.000Z" title="发表于 2024-07-13 23:29:28">2024-07-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-07-13T15:29:58.021Z" title="更新于 2024-07-13 23:29:58">2024-07-13</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Android基础1"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h4 id="Android项目结构"><a href="#Android项目结构" class="headerlink" title="Android项目结构"></a>Android项目结构</h4><p>Android:列出我们经常会用到的内容，比如：Java文件，布局文件等等。</p>
+<p>1、mainifests：其中显示的是安卓的全局描述文件。</p>
+<p>2、java：显示java的源码文件。</p>
+<p>3、res：显示的是资源文件，比如常见的类文件，图片资源文件等等。</p>
+<p>Project:列出我们项目当中的全部文件</p>
+<h4 id="创建AVD并启动安卓模拟器"><a href="#创建AVD并启动安卓模拟器" class="headerlink" title="创建AVD并启动安卓模拟器"></a>创建AVD并启动安卓模拟器</h4><p>模拟器就是模拟手机，平板等安卓设备。在这个模拟器上面测试设备，就可以开发出兼容性较好的设备。从而节约我们的开发成本。</p>
+<p>AVD:安卓虚拟设备的简称。可以用于设置模拟器的硬件列表，模拟器的外观，以及支持安卓系统版本等等。模拟器本身没有操作窗口，需要借助AVD才能实现。</p>
+<h4 id="安卓模拟器的基本配置"><a href="#安卓模拟器的基本配置" class="headerlink" title="安卓模拟器的基本配置"></a>安卓模拟器的基本配置</h4><p>将模拟器的使用语言设置成为简体中文</p>
+<p>模拟器设置成可调试</p>
+<h4 id="创建一个按钮"><a href="#创建一个按钮" class="headerlink" title="创建一个按钮"></a>创建一个按钮</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:background</span>=<span class="string">&quot;#FF5722&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">&quot;@+id/btn_test&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:text</span>=<span class="string">&quot;这是一个按钮&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:textSize</span>=<span class="string">&quot;60dp&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意显示背景颜色要将values下的themes.xml的</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">&quot;Theme.Test02&quot;</span> <span class="attr">parent</span>=<span class="string">&quot;Theme.MaterialComponents.DayNight.DarkActionBar&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>修改为：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">&quot;Theme.Test02&quot;</span> <span class="attr">parent</span>=<span class="string">&quot;Theme.MaterialComponents.DayNight.DarkActionBar.Bridge&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在MainActivity.java中绑定按钮(通过绑定id的方式)</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Button btn=findViewById(R.id.btn_test);</span><br></pre></td></tr></table></figure>
+
+<p>设置按钮点击响应事件</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Button btn=findViewById(R.id.btn_test);</span><br><span class="line">        btn.setOnClickListener(<span class="keyword">new</span> <span class="title class_">View</span>.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onClick</span><span class="params">(View view)</span></span><br><span class="line">            &#123;</span><br><span class="line">                tv.setText(<span class="string">&quot;按钮被点击了&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="Android介绍"><a href="#Android介绍" class="headerlink" title="Android介绍"></a>Android介绍</h4><p>Android是一种基于Linux是自由及开放源代码的操纵系统，Android分为四个层，从高层到到底层分别是应用程序层、应用程序框架层、系统运行库层和Linux内核层</p>
+<h4 id="Andorid四大组件"><a href="#Andorid四大组件" class="headerlink" title="Andorid四大组件"></a>Andorid四大组件</h4><p>Android有四大基本组件：Activity、Service服务、BroadcastReceiver广播接收器、Content Provider内容提供者</p>
+<h4 id="Activity介绍"><a href="#Activity介绍" class="headerlink" title="Activity介绍"></a>Activity介绍</h4><p>1、Activity是一个应用程序组件，提供一个屏幕，用户可以用来交互为了完成某项任务</p>
+<p>2、Activity中所有操作系统都与用户密切相关，是一个负责于用户交互的组件，可以通过setConetentwView(View)来显示指定控件</p>
+<p>3、在一个android应用中，一个Activity通常就是一个单独的屏幕，它上面可以显示一些控件也可以监听并处理用户的事件做出响应。Activity之间通过Intent进行通信</p>
+<h4 id="Activity四种基本状态"><a href="#Activity四种基本状态" class="headerlink" title="Activity四种基本状态"></a>Activity四种基本状态</h4><p>(1)Active&#x2F;Running</p>
+<p>一个新的Activity启动入栈后，它显示在屏幕的最前端，处于栈的最顶端(Activity栈顶)，此时它处于可见并可与用户交互的激活状态，叫做活动状态或者运行状态</p>
+<p>(2)Paused</p>
+<p>当Activity失去焦点，被一个新的非全屏的Activity或者一个透明的Activity被放置在栈顶，此时的状态叫做暂停状态(Paused)。此时它依然与窗口管理器保持连接，Activity依然保持活力(保持所有的状态，成员信息，和窗口管理器保持连接)，但是在系统内存极端低下的时候被强行终止掉。所以它依然可见，但已经失去了焦点故不可与用户进行交互。</p>
+<p>(3) Stopped</p>
+<p>如果一个Activity被另外的Activity完全覆盖掉，叫做停止状态(Stopped)。它依然保持所有状态和成员信息，但是它不再可见，所以它的窗口被隐藏，当系统内存需要被用在其他地方的时候，Stopped的Activity将被强行终止掉</p>
+<p>(4)Killed</p>
+<p>如果一个Activity是Paused或者Stopped状态，系统可以将该Activity从内存中删除，Android系统采用两种方式进行删除，要么要求该Activity结束，要么要求终止它的进程。当该Activity再次显示给用户时，它必须重新开始和重置前面的状态</p>
+<h4 id="Activity状态转换："><a href="#Activity状态转换：" class="headerlink" title="Activity状态转换："></a>Activity状态转换：</h4><p>当一个Activity实例被创建、销毁或者启动另外一个Activity时，它在这四种状态之间进行转换，这种转换的发送依赖于用户程序的动作。</p>
+<h4 id="Activity栈"><a href="#Activity栈" class="headerlink" title="Activity栈"></a>Activity栈</h4><p>Android是通过一种Activity栈的方式来管理Activity的，一个Activity的实例决定它在栈中的位置。处于前台的Activity总是在栈的顶端，当前台的Activity因为异常或是其它原因被销毁时，处于栈第二层的Activity将被激活，上浮到栈顶。当新的Activity启动入栈时，原Activity会被压入到栈的第二层。一个Activity在栈中的位置变化反映了它在不同状态间的转换</p>
+<p>通过以下代码将Activity和.xml文件进行绑定</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">setContentView(R.layout.activity_main);</span><br></pre></td></tr></table></figure>
+
+<p>创建一个新的界面的步骤</p>
+<p>1、通过Intent启动</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Intent</span> <span class="variable">intent</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Intent</span>(MainActivity.<span class="built_in">this</span>, SubActivity02.class);<span class="comment">//第一个参数：谁下发的命令，第二个参数：打开哪个Activity</span></span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
+
+<p>2、新的界面绑定.xml</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">setContentView(R.layout.activity_sub02)</span><br></pre></td></tr></table></figure>
+
+<p>3、清单文件要注册新的Activity</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&lt;activity android:name=<span class="string">&quot;.SubActivity02&quot;</span>&gt;</span><br><span class="line">&lt;/activity&gt;</span><br></pre></td></tr></table></figure>
+
+<p>4、新的Activity要继承Activity</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SubActivity02</span> <span class="keyword">extends</span> <span class="title class_">Activity</span></span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">qq</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/07/13/Android%E5%9F%BA%E7%A1%801/">http://example.com/2024/07/13/Android%E5%9F%BA%E7%A1%801/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Hexo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/07/12/java%E5%9F%BA%E7%A1%804/" title=""><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info"></div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/image/tx.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">qq</div><div class="author-info__description">且行且看且从容</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Wys-Blog" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1770460890@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Android%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">Android项目结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAAVD%E5%B9%B6%E5%90%AF%E5%8A%A8%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">创建AVD并启动安卓模拟器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">安卓模拟器的基本配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%8C%89%E9%92%AE"><span class="toc-number">4.</span> <span class="toc-text">创建一个按钮</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Android%E4%BB%8B%E7%BB%8D"><span class="toc-number">5.</span> <span class="toc-text">Android介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Andorid%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6"><span class="toc-number">6.</span> <span class="toc-text">Andorid四大组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Activity%E4%BB%8B%E7%BB%8D"><span class="toc-number">7.</span> <span class="toc-text">Activity介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Activity%E5%9B%9B%E7%A7%8D%E5%9F%BA%E6%9C%AC%E7%8A%B6%E6%80%81"><span class="toc-number">8.</span> <span class="toc-text">Activity四种基本状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Activity%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2%EF%BC%9A"><span class="toc-number">9.</span> <span class="toc-text">Activity状态转换：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Activity%E6%A0%88"><span class="toc-number">10.</span> <span class="toc-text">Activity栈</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/07/13/Android%E5%9F%BA%E7%A1%801/" title="Android基础1"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Android基础1"/></a><div class="content"><a class="title" href="/2024/07/13/Android%E5%9F%BA%E7%A1%801/" title="Android基础1">Android基础1</a><time datetime="2024-07-13T15:29:28.000Z" title="发表于 2024-07-13 23:29:28">2024-07-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/12/java%E5%9F%BA%E7%A1%804/" title="无题"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2024/07/12/java%E5%9F%BA%E7%A1%804/" title="无题">无题</a><time datetime="2024-07-12T15:46:48.689Z" title="发表于 2024-07-12 23:46:48">2024-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/11/java%E5%9F%BA%E7%A1%803/" title="java基础3"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java基础3"/></a><div class="content"><a class="title" href="/2024/07/11/java%E5%9F%BA%E7%A1%803/" title="java基础3">java基础3</a><time datetime="2024-07-11T12:54:21.000Z" title="发表于 2024-07-11 20:54:21">2024-07-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/10/java%E5%9F%BA%E7%A1%802/" title="java基础2"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java基础2"/></a><div class="content"><a class="title" href="/2024/07/10/java%E5%9F%BA%E7%A1%802/" title="java基础2">java基础2</a><time datetime="2024-07-10T14:54:17.000Z" title="发表于 2024-07-10 22:54:17">2024-07-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/09/java%E5%9F%BA%E7%A1%801/" title="java基础1"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java基础1"/></a><div class="content"><a class="title" href="/2024/07/09/java%E5%9F%BA%E7%A1%801/" title="java基础1">java基础1</a><time datetime="2024-07-09T14:24:26.000Z" title="发表于 2024-07-09 22:24:26">2024-07-09</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By qq</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
