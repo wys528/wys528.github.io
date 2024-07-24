@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Dex文件基本结构</title>
+      <link href="/2024/07/24/Dex%E6%96%87%E4%BB%B6%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84/"/>
+      <url>/2024/07/24/Dex%E6%96%87%E4%BB%B6%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Dex文件基本结构"><a href="#Dex文件基本结构" class="headerlink" title="Dex文件基本结构"></a>Dex文件基本结构</h3><h3 id="Dex文件介绍"><a href="#Dex文件介绍" class="headerlink" title="Dex文件介绍"></a>Dex文件介绍</h3><p>含义：专门位移动端开发的一种可执行文件格式</p><p>优点：比class文件体积小，真内存小，加载速度快，堆栈加载速度快，类查找快等，更适合手机</p><p>生成：&#x2F;&#x2F;javac c\b\a\HelloWorld.java</p><p>​  &#x2F;&#x2F;dx –dex –output &#x3D; c\b\a\HelloWorld.dex c\b\a\HelloWorld.class&#x2F;&#x2F;这是旧版本的Android SDK写法</p><p>反编译smali</p><p><a href="https://source.android.com/docs/core/runtime/instruction-formats?hl=zh-cn">https://source.android.com/docs/core/runtime/instruction-formats?hl=zh-cn</a></p><p><a href="https://source.android.com/docs/core/runtime/dex-format?hl=zh-cn">https://source.android.com/docs/core/runtime/dex-format?hl=zh-cn</a></p><p>其他名词解释：</p><p>odex(5.0引入)、oat(elf,包含 odex内容)、vdex(8.0引入)</p><p>png文件格式的</p><p><img src="C:\Hexo-Blog\blog-demo\source\image\dex.png"></p><p>生成代码如下图</p><p><img src="/../image/dex2.png"></p><p>注意下生成.dex的代码：1、要根据Android SDK的版本选择不同的命令</p><p>​2、输出目录要合法（gdp要善于利用）</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;D:\Android SDK\build-tools\35.0.0\d8.bat&quot; --release --output D:\ideaprojects\untitled\src D:\ideaprojects\untitled\src\Main.class</span><br><span class="line">--release：编译时优化为 release 版本。</span><br><span class="line">--output D:\ideaprojects\untitled\src：指定输出目录为 D:\ideaprojects\untitled\src，这里不需要指定具体的文件名，d8 工具会自动根据输入的类文件生成相应的 .dex 文件。</span><br><span class="line">路径和空格问题：确保路径中的空格和斜杠使用正确。路径中的空格需要使用引号包裹，例如：&quot;D:\Android SDK\build-tools\35.0.0\d8.bat&quot;。</span><br><span class="line">输出目录设置：--output 参数后应该是一个目录路径，而不是一个具体的文件路径。</span><br></pre></td></tr></table></figure><p><img src="/../image/dex3.png"></p><p>用GDA可查看.dex文件的字节码</p><p><img src="/../image/dex4.png"></p><p>odex:Odex 文件是对应于 <code>.dex</code> 文件的一种优化版本，它会提前编译和优化 Dalvik 字节码，以加快应用程序的加载速度和执行效率。</p><p>oat:OAT 文件中包含了经过优化的本地机器代码，这些代码相比于解释执行的字节码（<code>.dex</code> 文件），在执行时可以更快速和高效。这种预先编译的方式可以显著提高应用程序的启动速度、响应速度和运行效率。</p><p>vdex:VDex文件包含了经过优化和验证的DEX文件的内容。在应用程序安装或首次运行时，系统会将原始的DEX文件转换为VDex文件。这种优化不仅包括了对DEX文件中字节码的优化，还包括了对DEX文件中数据的验证和校验。</p><p>dex文件结构</p><p><img src="/../image/dex5.jpg"></p><p>Dex Header：对整个文件进行描述</p><p>索引表：记录信息</p><p>Proto索引表：类似存放函数签名</p><p>Field索引表：成员变量</p><p>数据区：存储数据</p><p>Map块：告诉我们有哪些索引方式</p><p><img src="/../image/dex8.jpg"></p><p>具体作用：</p><p><img src="/../image/dex9.jpg"></p><h4 id="Leb128-Little-Endian-Base-128"><a href="#Leb128-Little-Endian-Base-128" class="headerlink" title="Leb128(Little-Endian Base 128)"></a>Leb128(Little-Endian Base 128)</h4><p>u表示unsigned，s表示signed，p1是dalvik独有的编码格式(后面说明)，是一种变长的整数压缩编码形式，通常由1-5byte组成，由一个int值再机器中占有4Byte。为了实现变长存储，节省空间，在Leb128格式中每个byte的最高位作为后续byte是否有效的标志位，1表示还有后续字节，0表示结束，后面7bits是有效数据，所有一个整数最大需要5byte存储</p><h4 id="Uleb128"><a href="#Uleb128" class="headerlink" title="Uleb128"></a>Uleb128</h4><p>将无符号整数写成二进制形式，从低位到高位每个7bits作为一个整体组合成一个组，最高字节不足7bit，用0填充到7bit，在每组最高位填入是否有高字节的标识，构成一个完整的字节，然后将所有字节小端序排列</p><ul><li>大端序（Big-Endian）将数据的低位字节存放在内存的高位地址，高位字节存放在低位地址。这种排列方式与数据用字节表示时的书写顺序一致，符合人类的阅读习惯。</li><li>小端序（Little-Endian），将一个多位数的低位放在较小的地址处，高位放在较大的地址处，则称<strong>小端序</strong>。小端序与人类的阅读习惯相反，但更符合计算机读取内存的方式，因为CPU读取内存中的数据时，是从低地址向高地址方向进行读取的。</li><li><img src="/../../../../Hexo-Blog/blog-demo/source/image/sandb.jpeg"></li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>APK基本结构</title>
       <link href="/2024/07/23/APK%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84/"/>
       <url>/2024/07/23/APK%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84/</url>
