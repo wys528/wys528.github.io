@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Smali</title>
+      <link href="/2024/08/02/Smali/"/>
+      <url>/2024/08/02/Smali/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Smali汇编"><a href="#Smali汇编" class="headerlink" title="Smali汇编"></a>Smali汇编</h2><h3 id="了解安卓虚拟机"><a href="#了解安卓虚拟机" class="headerlink" title="了解安卓虚拟机"></a>了解安卓虚拟机</h3><h4 id="Dalvik虚拟机"><a href="#Dalvik虚拟机" class="headerlink" title="Dalvik虚拟机"></a>Dalvik虚拟机</h4><p>JIT(Just-In-Time Compile 即时编译)，高频率使用代码空闲时间编译好并存储到内存</p><h4 id="Art虚拟机"><a href="#Art虚拟机" class="headerlink" title="Art虚拟机"></a>Art虚拟机</h4><p>AOT(Ahead-Of-Time 预先编译)一次编译好，oat文件</p><h3 id="头文件定义与接口实现"><a href="#头文件定义与接口实现" class="headerlink" title="头文件定义与接口实现"></a>头文件定义与接口实现</h3><p>(“&lt;&gt;”表示可选)</p><h4 id="class"><a href="#class" class="headerlink" title=".class"></a>.class</h4><p>作用：定义类，包括包名和类名</p><p>格式：.class &lt;访问权限&gt; [关键修饰字] &lt;完整类名&gt;  (“&lt;&gt;”表示可选)</p><h4 id="super"><a href="#super" class="headerlink" title=".super"></a>.super</h4><p>作用：定义所属父类</p><p>格式：.super &lt;父类完整类名&gt;</p><h4 id="source"><a href="#source" class="headerlink" title=".source"></a>.source</h4><p>作用：指定该smail代码所属java源文件</p><p>格式：.source &lt;java源代码名称&gt;</p><h4 id="implements"><a href="#implements" class="headerlink" title=".implements"></a>.implements</h4><p>作用： 声明实现接口类名称</p><p>格式：.implements &lt;接口类名&gt;</p><h3 id="静态变量"><a href="#静态变量" class="headerlink" title="静态变量"></a>静态变量</h3><p>作用：相当于全局变量，跟类实例没关系，属于类</p><p>格式：.field &lt;访问权限&gt; static [修饰词] &lt;字段名&gt; : &lt;变量类型&gt;</p><p>​   .field &lt;访问权限&gt; static final &lt;变量名&gt; : &lt;常量类型&gt; &#x3D; 常量值</p><h4 id="普通变量"><a href="#普通变量" class="headerlink" title="普通变量"></a>普通变量</h4><p>作用：相当于局部变量，跟类实例有关系，不属于类，没有static修饰</p><p>格式：.field &lt;访问权限修饰符&gt; [非权限修饰符] &lt;变量名&gt; : &lt;变量类型&gt;</p><h3 id="方法定义"><a href="#方法定义" class="headerlink" title="方法定义"></a>方法定义</h3><p>标签：.method  .end 之间</p><p>格式：.method &lt;访问权限修饰符&gt; [非访问权限修饰符] &lt;方法名&gt; 签名</p><p>​&lt;.locals&gt;</p><p>​[.parameter]</p><p>​[.prologue]</p><p>​[.line]</p><p>​&lt;代码逻辑&gt;</p><p>​.end method</p><h4 id="其他语法知识点"><a href="#其他语法知识点" class="headerlink" title="其他语法知识点"></a>其他语法知识点</h4><p>clinit函数：静态代码static修饰的</p><p>direct methods：不能被子类继承、覆盖、修改</p><p>virtual methods：能被子类继承、覆盖、修改</p><h4 id="方法调用"><a href="#方法调用" class="headerlink" title="方法调用"></a>方法调用</h4><p>指令</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">invoke-virtual(调用实例的虚方法)</span><br><span class="line">invoke-super(调用实例的父类/基类方法)</span><br><span class="line">invoke-direct(调用实例的直接方法)</span><br><span class="line">invoke-static(调用实例的静态方法)</span><br><span class="line">invoke-static(调用实例的接口方法)</span><br></pre></td></tr></table></figure><p><img src="/../image/Smali.jpg"> </p><p><img src="/../image/Smali2.jpg"></p><h4 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h4><p>指令组合</p><p>new-instance 寄存器，类名</p><p>invoke-direct{寄存器，参数寄存器}，类名-&gt;&lt; init &gt;签名</p><p>return-object 寄存器</p><h4 id="修改应用Smali代码实现破解功能"><a href="#修改应用Smali代码实现破解功能" class="headerlink" title="修改应用Smali代码实现破解功能"></a>修改应用Smali代码实现破解功能</h4><p>反汇编成smali</p><p><img src="/../image/smali3.png"></p><p>使用jadx-gui-1.4.4查看源代码，在AndroidManifest.xml中查看包名</p><p><img src="/../image/smali4.png"></p><p>找到注册按钮</p><p><img src="/../image/smali5.png"></p><p>找到调用checkSN的函数</p><p><img src="/../image/smali6.png"></p><p><img src="/../image/smali7.png"></p><p>成功的语句块</p><p><img src="/../image/smali8.png"></p><p>失败的语句块</p><p><img src="/../image/smali9.png"></p><p>修改checkSN，在放回之前强制将v7改为true</p><p><img src="/../image/smali10.png"></p><p>将修改完后的smali进行回编</p><p><img src="/../image/smali11.png"></p><p>回编后的文件路径</p><p><img src="/../image/smali12.png"></p><p>要先删除原先安装的，再使用APK上上签进行签名,完成</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ELF</title>
       <link href="/2024/08/01/ELF/"/>
       <url>/2024/08/01/ELF/</url>
