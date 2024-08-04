@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Android常见风险1</title>
+      <link href="/2024/08/04/Android%E5%B8%B8%E8%A7%81%E9%A3%8E%E9%99%A91/"/>
+      <url>/2024/08/04/Android%E5%B8%B8%E8%A7%81%E9%A3%8E%E9%99%A91/</url>
+      
+        <content type="html"><![CDATA[<h2 id="安卓常见风险"><a href="#安卓常见风险" class="headerlink" title="安卓常见风险"></a>安卓常见风险</h2><h3 id="Android重打包风险"><a href="#Android重打包风险" class="headerlink" title="Android重打包风险"></a>Android重打包风险</h3><p>风险：插入广告、扣费</p><p>防范措施：使用一些混淆工具，阻止反编译，加壳</p><h3 id="敏感数据明文保存风险"><a href="#敏感数据明文保存风险" class="headerlink" title="敏感数据明文保存风险"></a>敏感数据明文保存风险</h3><p>含义：对app来说重要的数据</p><p>防范措施：不能放在公共区域</p><h3 id="组件越权风险"><a href="#组件越权风险" class="headerlink" title="组件越权风险"></a>组件越权风险</h3><p>防范措施</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">android:exported = &quot;false&quot;</span><br></pre></td></tr></table></figure><h3 id="WebView跨域访问风险"><a href="#WebView跨域访问风险" class="headerlink" title="WebView跨域访问风险"></a>WebView跨域访问风险</h3><p>（明天再更，难度太大，一时难以理解）</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Arm</title>
       <link href="/2024/08/03/Arm/"/>
       <url>/2024/08/03/Arm/</url>
