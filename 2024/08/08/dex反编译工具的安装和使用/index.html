@@ -1,0 +1,178 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>dex反编译工具的安装和使用 | Hexo</title><meta name="author" content="lele"><meta name="copyright" content="lele"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="jadx的安装和使用简介jadx可以一键把apk文件还原成Java代码，使用起来很简单，功能强大，还具有一些附加功能可以辅助代码追查，其主要具有如下几个功能： 1、除了反编译apk文件，还可以反编译jar、class、dex、arr、等文件和zip文件中的Dalvik字节码 2、解码AndroidManifest.xml文件和一些来自resources.arsc中的资源文件 3、一些apk文件在打">
+<meta property="og:type" content="article">
+<meta property="og:title" content="dex反编译工具的安装和使用">
+<meta property="og:url" content="http://example.com/2024/08/08/dex%E5%8F%8D%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="jadx的安装和使用简介jadx可以一键把apk文件还原成Java代码，使用起来很简单，功能强大，还具有一些附加功能可以辅助代码追查，其主要具有如下几个功能： 1、除了反编译apk文件，还可以反编译jar、class、dex、arr、等文件和zip文件中的Dalvik字节码 2、解码AndroidManifest.xml文件和一些来自resources.arsc中的资源文件 3、一些apk文件在打">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
+<meta property="article:published_time" content="2024-08-08T07:27:22.000Z">
+<meta property="article:modified_time" content="2024-08-08T09:01:02.896Z">
+<meta property="article:author" content="lele">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="/image/tx.jpg"><link rel="canonical" href="http://example.com/2024/08/08/dex%E5%8F%8D%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'dex反编译工具的安装和使用',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-08-08 17:01:02'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/image/tx.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Hexo"><img class="site-icon" src="/image/test.gif"/><span class="site-name">Hexo</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">dex反编译工具的安装和使用</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-08-08T07:27:22.000Z" title="发表于 2024-08-08 15:27:22">2024-08-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-08-08T09:01:02.896Z" title="更新于 2024-08-08 17:01:02">2024-08-08</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="dex反编译工具的安装和使用"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="jadx的安装和使用"><a href="#jadx的安装和使用" class="headerlink" title="jadx的安装和使用"></a>jadx的安装和使用</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>jadx可以一键把apk文件还原成Java代码，使用起来很简单，功能强大，还具有一些附加功能可以辅助代码追查，其主要具有如下几个功能：</p>
+<p>1、除了反编译apk文件，还可以反编译jar、class、dex、arr、等文件和zip文件中的Dalvik字节码</p>
+<p>2、解码AndroidManifest.xml文件和一些来自resources.arsc中的资源文件</p>
+<p>3、一些apk文件在打包过程中增加了java代码的混淆机制，对比jadx提供反混淆的支持。</p>
+<p>jadx本身是一个命令行工具，仅仅通过jadx这个命令就可以反编译一个apk文件。除此之外，它也可以有配套的图形化界面工具——jadx-gui。</p>
+<p>安装过程就略过了</p>
+<h4 id="jadx命令"><a href="#jadx命令" class="headerlink" title="jadx命令"></a>jadx命令</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">jadx xxx.apk -d xxx，运行完成后本地会生成一个xxx文件夹</span><br></pre></td></tr></table></figure>
+
+<h4 id="jadx-gui的使用方法"><a href="#jadx-gui的使用方法" class="headerlink" title="jadx-gui的使用方法"></a>jadx-gui的使用方法</h4><p>jadx-gui是一个图形界面工具，它就像一个IDE，支持很多方便快捷的交互式操作</p>
+<h4 id="保存为Gradle项目"><a href="#保存为Gradle项目" class="headerlink" title="保存为Gradle项目"></a>保存为Gradle项目</h4><p><img src="/../image/dex%E5%8F%8D%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8.png"></p>
+<p>导出后的项目目录结构和我们在 jadx-gui 界面里看到的结构基本一致，这个项目是可以被 Android Studio 工具打开的，打开之后的代码一般没办法直接运行，因为毕竟整个项目是反编译出来的，不太可能完全还原出开发版本的 Andriod 项目。</p>
+<h4 id="文本搜索"><a href="#文本搜索" class="headerlink" title="文本搜索"></a>文本搜索</h4><p><img src="/../image/dex%E5%8F%8D%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A82.png"></p>
+<h4 id="查找方法的声明"><a href="#查找方法的声明" class="headerlink" title="查找方法的声明"></a>查找方法的声明</h4><p><img src="/../image/dex%E5%8F%8D%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A83.png"></p>
+<h4 id="反混淆"><a href="#反混淆" class="headerlink" title="反混淆"></a>反混淆</h4><p><img src="/../image/dex%E5%8F%8D%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A85.png"></p>
+<p>反混淆能进一步提升代码的还原度，从而让我们更方便地推敲代码中的逻辑</p>
+<h4 id="JEB的简介"><a href="#JEB的简介" class="headerlink" title="JEB的简介"></a>JEB的简介</h4><p>JEB 是由 PNF 软件(PNF Software) 机构开发的一款专业的反编译 Android App 的工具，适用于逆向和审计工程，功能非常强大。</p>
+<p>功能：</p>
+<p>1、可以对Android App和Dalvik(Android虚拟机，类似Java中的JVM)字节码执行精确和快速的反编译操作</p>
+<p>2、内置的分析模块可以对高度尕的代码提供虚拟层次化重构，对分析代码很有帮助</p>
+<p>3、可以对接JEB API来执行一些逆向任务，支持用Java和Python编写自动化逆向脚本</p>
+<p>安装过程略过</p>
+<p>进入JEB解压目录，windows下双击jeb_wincon.bat，按照弹窗generate a license，即可正常使用。设置中文</p>
+<p>具体使用还没有办法实操</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">lele</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/08/08/dex%E5%8F%8D%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/">http://example.com/2024/08/08/dex%E5%8F%8D%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Hexo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/08/08/adb/" title="adb"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">adb</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/image/tx.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">lele</div><div class="author-info__description">且行且看且从容</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Wys-Blog" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1770460890@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#jadx%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">jadx的安装和使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jadx%E5%91%BD%E4%BB%A4"><span class="toc-number">1.2.</span> <span class="toc-text">jadx命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jadx-gui%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.</span> <span class="toc-text">jadx-gui的使用方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98%E4%B8%BAGradle%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.4.</span> <span class="toc-text">保存为Gradle项目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E6%90%9C%E7%B4%A2"><span class="toc-number">1.5.</span> <span class="toc-text">文本搜索</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E6%96%B9%E6%B3%95%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="toc-number">1.6.</span> <span class="toc-text">查找方法的声明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E6%B7%B7%E6%B7%86"><span class="toc-number">1.7.</span> <span class="toc-text">反混淆</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JEB%E7%9A%84%E7%AE%80%E4%BB%8B"><span class="toc-number">1.8.</span> <span class="toc-text">JEB的简介</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/08/08/dex%E5%8F%8D%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/" title="dex反编译工具的安装和使用"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="dex反编译工具的安装和使用"/></a><div class="content"><a class="title" href="/2024/08/08/dex%E5%8F%8D%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/" title="dex反编译工具的安装和使用">dex反编译工具的安装和使用</a><time datetime="2024-08-08T07:27:22.000Z" title="发表于 2024-08-08 15:27:22">2024-08-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/08/adb/" title="adb"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="adb"/></a><div class="content"><a class="title" href="/2024/08/08/adb/" title="adb">adb</a><time datetime="2024-08-08T05:55:23.000Z" title="发表于 2024-08-08 13:55:23">2024-08-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/08/%E9%A2%98%E7%9B%AE3/" title="题目3"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="题目3"/></a><div class="content"><a class="title" href="/2024/08/08/%E9%A2%98%E7%9B%AE3/" title="题目3">题目3</a><time datetime="2024-08-07T17:16:18.000Z" title="发表于 2024-08-08 01:16:18">2024-08-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/08/DD-Androideasy-and-smali/" title="DD-Androideasy and smali"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DD-Androideasy and smali"/></a><div class="content"><a class="title" href="/2024/08/08/DD-Androideasy-and-smali/" title="DD-Androideasy and smali">DD-Androideasy and smali</a><time datetime="2024-08-07T16:35:29.000Z" title="发表于 2024-08-08 00:35:29">2024-08-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/08/Androideasy-simplecheck/" title="Androideasy&amp;simplecheck"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Androideasy&amp;simplecheck"/></a><div class="content"><a class="title" href="/2024/08/08/Androideasy-simplecheck/" title="Androideasy&amp;simplecheck">Androideasy&amp;simplecheck</a><time datetime="2024-08-07T16:00:34.000Z" title="发表于 2024-08-08 00:00:34">2024-08-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By lele</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
