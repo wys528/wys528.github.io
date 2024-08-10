@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>逆向环境配置</title>
+      <link href="/2024/08/10/%E9%80%86%E5%90%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+      <url>/2024/08/10/%E9%80%86%E5%90%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<h3 id="install-vmtools"><a href="#install-vmtools" class="headerlink" title="install vmtools"></a>install vmtools</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ls /media/cdrom0</span><br><span class="line"></span><br><span class="line">cp /media/cdrom0/VMwareTools-*.tar.gz ~/</span><br><span class="line"></span><br><span class="line">cd ~</span><br><span class="line">tar -zxvf VMwareTools-*.tar.gz</span><br><span class="line"></span><br><span class="line">cd vmware-tools-distrib</span><br><span class="line">sudo ./vmware-install.pl</span><br><span class="line">或者：</span><br><span class="line">sudo apt install open-vm-tools-desktop -y</span><br></pre></td></tr></table></figure><h3 id="更新时区"><a href="#更新时区" class="headerlink" title="更新时区"></a>更新时区</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dpkg-reconfigure tzdata</span><br></pre></td></tr></table></figure><h3 id="切换中文"><a href="#切换中文" class="headerlink" title="切换中文"></a>切换中文</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo dpkg-reconfigure locales</span><br><span class="line">重启</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure><h3 id="下载Android-studio"><a href="#下载Android-studio" class="headerlink" title="下载Android studio"></a>下载Android studio</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2024.1.1.12/android-studio-2024.1.1.12-linux.tar.gz</span><br></pre></td></tr></table></figure><h3 id="启动Android-studio"><a href="#启动Android-studio" class="headerlink" title="启动Android studio"></a>启动Android studio</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">要在bin目录下</span><br><span class="line">./studio.sh</span><br></pre></td></tr></table></figure><h4 id="启动jadx"><a href="#启动jadx" class="headerlink" title="启动jadx"></a>启动jadx</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">要在bin目录下</span><br><span class="line">./jadx-gui</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Smali汇编</title>
       <link href="/2024/08/09/Smali%E6%B1%87%E7%BC%96/"/>
       <url>/2024/08/09/Smali%E6%B1%87%E7%BC%96/</url>
