@@ -1,0 +1,207 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>so | Hexo</title><meta name="author" content="lele"><meta name="copyright" content="lele"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="枚举各种 通过枚举导入表，可以得到出现在导入表中的函数地址 var imports&#x3D;Module.enumerateImports(&quot;libxiaojianbang.so&quot;);for(let i&#x3D;0;i&lt;imports.length;i++)&#123;    console.log(JSON.stringify(imports[i]));&#125;  通过枚举导出表，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="so">
+<meta property="og:url" content="http://example.com/2024/11/13/so/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="枚举各种 通过枚举导入表，可以得到出现在导入表中的函数地址 var imports&#x3D;Module.enumerateImports(&quot;libxiaojianbang.so&quot;);for(let i&#x3D;0;i&lt;imports.length;i++)&#123;    console.log(JSON.stringify(imports[i]));&#125;  通过枚举导出表，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
+<meta property="article:published_time" content="2024-11-13T12:48:22.000Z">
+<meta property="article:modified_time" content="2024-11-16T15:01:22.683Z">
+<meta property="article:author" content="lele">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="/image/tx.jpg"><link rel="canonical" href="http://example.com/2024/11/13/so/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'so',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-11-16 23:01:22'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/image/tx.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">72</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Hexo"><img class="site-icon" src="/image/test.gif"/><span class="site-name">Hexo</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">so</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-13T12:48:22.000Z" title="发表于 2024-11-13 20:48:22">2024-11-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-16T15:01:22.683Z" title="更新于 2024-11-16 23:01:22">2024-11-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="so"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="枚举各种"><a href="#枚举各种" class="headerlink" title="枚举各种"></a>枚举各种</h2><ul>
+<li><p>通过枚举导入表，可以得到出现在导入表中的函数地址</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> imports=<span class="title class_">Module</span>.<span class="title function_">enumerateImports</span>(<span class="string">&quot;libxiaojianbang.so&quot;</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;imports.<span class="property">length</span>;i++)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(imports[i]));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过枚举导出表，可以得到出现在导出表中的函数地址</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="built_in">exports</span>=<span class="title class_">Module</span>.<span class="title function_">enumerateExports</span>(<span class="string">&quot;libxiaojianbang.so&quot;</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;<span class="built_in">exports</span>.<span class="property">length</span>;i++)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(<span class="built_in">exports</span>[i]));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过枚举符号表，可以得出出现在符号表中的函数地址</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> symbol=<span class="title class_">Module</span>.<span class="title function_">enumerateSymbols</span>(<span class="string">&quot;libencryptlib.so&quot;</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;symbol.<span class="property">length</span>;i++)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(symbol[i]));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过枚举模块，在枚举出模块里面的导出表，可以快速找到某个导入函数出自哪个so</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> moudles=<span class="title class_">Process</span>.<span class="title function_">enumerateModules</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(moudles[<span class="number">0</span>].<span class="title function_">enumerateExports</span>()[<span class="number">0</span>]));</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="sohook导出函数"><a href="#sohook导出函数" class="headerlink" title="sohook导出函数"></a>sohook导出函数</h2><ul>
+<li><p>在so导出表里的函数，可以通过frida提供的api来获取函数地址</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> funcAddr=<span class="title class_">Module</span>.<span class="title function_">findExportByName</span>(<span class="string">&quot;libxiaojianbang.so&quot;</span>,<span class="string">&quot;add&quot;</span>);</span><br><span class="line">函数名以汇编中出现的为准</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>得到函数地址后，可以使用Interceptor.attach来对函数进行hook</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Interceptor</span>.<span class="title function_">attach</span>(<span class="title class_">Address</span>,&#123;</span><br><span class="line">    <span class="attr">onEnter</span>:<span class="keyword">function</span>(<span class="params">args</span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(args[<span class="number">0</span>]);<span class="comment">//打印参数</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">context</span>.<span class="property">x1</span>);<span class="comment">//打印寄存器</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(args[<span class="number">2</span>].<span class="title function_">toInt32</span>());<span class="comment">//默认显示16进制，这里转成10进制</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">onLeave</span>:<span class="keyword">function</span>(<span class="params">retval</span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;retval&quot;</span>,retval,retval.<span class="title function_">toInt32</span>());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> funcAddr=<span class="title class_">Module</span>.<span class="title function_">findExportByName</span>(<span class="string">&quot;libencryptlib.so&quot;</span>,<span class="string">&quot;_ZN7MD5_CTX11MakePassMD5EPhjS0_&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(funcAddr);</span><br><span class="line"><span class="title class_">Interceptor</span>.<span class="title function_">attach</span>(funcAddr,&#123;</span><br><span class="line">   <span class="attr">onEnter</span>:<span class="keyword">function</span>(<span class="params">args</span>)&#123;</span><br><span class="line">       <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;funcAddr onEnter args[1]:&quot;</span>,<span class="title function_">hexdump</span>(args[<span class="number">1</span>]));</span><br><span class="line">       <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;funcAddr onEnter args[2]:&quot;</span>,args[<span class="number">2</span>].<span class="title function_">toInt32</span>());</span><br><span class="line">       <span class="variable language_">this</span>.<span class="property">args3</span>=args[<span class="number">3</span>];</span><br><span class="line">   &#125;,<span class="attr">onLeave</span>:<span class="keyword">function</span>(<span class="params">retval</span>)&#123;</span><br><span class="line">       <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;funcAddr onEnter args[3]:&quot;</span>,<span class="title function_">hexdump</span>(<span class="variable language_">this</span>.<span class="property">args3</span>));</span><br><span class="line">   &#125; </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="模块基址的几种方式"><a href="#模块基址的几种方式" class="headerlink" title="模块基址的几种方式"></a>模块基址的几种方式</h2><ul>
+<li><p>在导入表、导出表、符号表里找不到的函数，地址需要自己计算</p>
+</li>
+<li><p>计算方式也很简单：so基址+函数在so中的偏移[+1]</p>
+</li>
+<li><p>因此，需要得到so基址，也就是模块基址</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Process</span>.<span class="title function_">findMoudleByName</span>(<span class="string">&quot;libart.so&quot;</span>);</span><br><span class="line"><span class="title class_">Process</span>.<span class="title function_">getMoudleByName</span>(<span class="string">&quot;libc.so&quot;</span>);</span><br><span class="line"><span class="title class_">Module</span>.<span class="title function_">findBaseAddress</span>(<span class="string">&quot;libart.so&quot;</span>);</span><br><span class="line"><span class="title class_">Process</span>.<span class="title function_">enumerateModules</span>();</span><br><span class="line"><span class="title class_">Process</span>.<span class="title function_">findModuleByAddress</span>(address);</span><br><span class="line"><span class="title class_">Process</span>.<span class="title function_">getModuleByAddress</span>(address);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> module1=<span class="title class_">Process</span>.<span class="title function_">findModuleByName</span>(<span class="string">&quot;libencryptlib.so&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;module1&quot;</span>,module1.<span class="property">base</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> module2=<span class="title class_">Process</span>.<span class="title function_">getModuleByName</span>(<span class="string">&quot;libencryptlib.so&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;module2&quot;</span>,module2.<span class="property">base</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> soAddr=<span class="title class_">Module</span>.<span class="title function_">findBaseAddress</span>(<span class="string">&quot;libencryptlib.so&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;soAddr&quot;</span>,soAddr);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> modules=<span class="title class_">Process</span>.<span class="title function_">enumerateModules</span>();</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;modules.<span class="property">length</span>;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(modules[i].<span class="property">name</span>==<span class="string">&quot;libencrypt.so&quot;</span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(modules[i].<span class="property">name</span>+<span class="string">&quot; &quot;</span>+modules[i].<span class="property">base</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="variable language_">module</span>=<span class="title class_">Process</span>.<span class="title function_">findModuleByAddress</span>(<span class="title class_">Module</span>.<span class="title function_">findBaseAddress</span>(<span class="string">&quot;libencrypt.so&quot;</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;module &quot;</span>+<span class="variable language_">module</span>.<span class="property">name</span>+<span class="string">&quot; &quot;</span>+<span class="variable language_">module</span>.<span class="property">base</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="函数地址的计算"><a href="#函数地址的计算" class="headerlink" title="函数地址的计算"></a>函数地址的计算</h2><ul>
+<li><p>在导入表、导出表、符号表里找不到的函数，地址需要自己计算</p>
+</li>
+<li><p>计算方式也很简单：so基址+函数在so中的偏移[+1]</p>
+<p>如果是thumb指令，函数地址计算方式：so基址+函数在so中的偏移+1</p>
+<p>如果是arm指令，函数地址的i计算方式：so基址+函数在so中的偏移</p>
+</li>
+<li><p>在安卓中，32位的so中的函数，基本都是thumb指令；64位的so基本都是arm指令</p>
+</li>
+<li><p>也可以通过显示汇编指令对应的opcode bytes，来判断</p>
+<p>options-&gt;general-&gt;Number of opcode bytes(non-graph) 4</p>
+<p>arm指令为4个字节，如果函数中有些指令是两个字节，那么函数地址计算需要+1</p>
+</li>
+<li><p>通过代码的方式</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> soAddr=<span class="title class_">Module</span>.<span class="title function_">findBaseAddress</span>(<span class="string">&quot;libencryptlib.so&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(soAddr.<span class="title function_">add</span>(<span class="number">0x1FA38</span>)) </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Hook任意函数"><a href="#Hook任意函数" class="headerlink" title="Hook任意函数"></a>Hook任意函数</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> soAddr=<span class="title class_">Module</span>.<span class="title function_">findBaseAddress</span>(<span class="string">&quot;libencryptlib.so&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> funcAddr=soAddr.<span class="title function_">add</span>(<span class="number">0xFA38</span>);</span><br><span class="line"><span class="title class_">Interceptor</span>.<span class="title function_">attach</span>(funcAddr,&#123;</span><br><span class="line">   <span class="attr">onEnter</span>:<span class="keyword">function</span>(<span class="params">args</span>)&#123;</span><br><span class="line">       <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;funcAddr onEnter args[1]:&quot;</span><span class="title function_">hexdump</span>(args[<span class="number">1</span>]));</span><br><span class="line">       <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;funcAddr onEnter args[2]:&quot;</span>,args[<span class="number">2</span>].<span class="property">toInt32</span>);</span><br><span class="line">       <span class="variable language_">this</span>.<span class="property">args3</span>=args[<span class="number">3</span>];</span><br><span class="line">   &#125;,<span class="attr">onLeave</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">       <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;funcAddr onLeave args[3]:&quot;</span>,<span class="title function_">hexdump</span>(<span class="variable language_">this</span>.<span class="property">args3</span>));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="封装成函数"><a href="#封装成函数" class="headerlink" title="封装成函数"></a>封装成函数</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">print_arg</span>(<span class="params">addr</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="variable language_">module</span>=<span class="title class_">Process</span>.<span class="title function_">findRangeByAddress</span>(addr);</span><br><span class="line">    <span class="keyword">if</span>(<span class="variable language_">module</span>!=<span class="literal">null</span>) <span class="keyword">return</span> <span class="title function_">hexdump</span>(addr)+<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">ptr</span>(addr)+<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">hook_native_addr</span>(<span class="params">funcPtr,paramsNum</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="variable language_">module</span>=<span class="title class_">Process</span>.<span class="title function_">findModuleByAddress</span>(funcPtr);</span><br><span class="line">    <span class="title class_">Interceptor</span>.<span class="title function_">attach</span>(funcPtr,&#123;</span><br><span class="line">        <span class="attr">onEnter</span>:<span class="keyword">function</span>(<span class="params">args</span>)&#123;</span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">logs</span>=[];</span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">params</span>=[];</span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">logs</span>.<span class="title function_">push</span>(<span class="string">&quot;call &quot;</span>+<span class="variable language_">module</span>.<span class="property">name</span>+<span class="string">&quot;!&quot;</span>+<span class="title function_">ptr</span>(funcPtr).<span class="title function_">sub</span>(<span class="variable language_">module</span>.<span class="property">base</span>)+<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;paramsNum;i++)&#123;</span><br><span class="line">                <span class="variable language_">this</span>.<span class="property">params</span>.<span class="title function_">push</span>(args[i]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;paramsNum;i++)&#123;</span><br><span class="line">                <span class="variable language_">this</span>.<span class="property">logs</span>.<span class="title function_">push</span>(<span class="string">&quot;this.args&quot;</span>+i+<span class="string">&quot;onLeave: &quot;</span>+<span class="title function_">print_arg</span>(<span class="variable language_">this</span>.<span class="property">params</span>[i]));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="attr">onLeave</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">logs</span>.<span class="title function_">push</span>(<span class="string">&quot;retval onLeave: &quot;</span>+<span class="title function_">print_arg</span>(retval)+<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">logs</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> soAddr=<span class="title class_">Module</span>.<span class="title function_">findBaseAddress</span>(<span class="string">&quot;libencryptlib.so&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> funcAddr=soAddr.<span class="title function_">add</span>(<span class="number">0x1FA38</span>);</span><br><span class="line"><span class="title function_">hook_native_addr</span>(funcAddr,<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">lele</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/11/13/so/">http://example.com/2024/11/13/so/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Hexo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/11/03/%E5%AF%86%E7%A0%81%E5%AD%A6%E8%BF%9B%E9%98%B6/" title="密码学进阶"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">密码学进阶</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/image/tx.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">lele</div><div class="author-info__description">且行且看且从容</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">72</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Wys-Blog" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1770460890@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE%E5%90%84%E7%A7%8D"><span class="toc-number">1.</span> <span class="toc-text">枚举各种</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sohook%E5%AF%BC%E5%87%BA%E5%87%BD%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">sohook导出函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E5%9F%BA%E5%9D%80%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">模块基址的几种方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%9C%B0%E5%9D%80%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-number">4.</span> <span class="toc-text">函数地址的计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hook%E4%BB%BB%E6%84%8F%E5%87%BD%E6%95%B0"><span class="toc-number">5.</span> <span class="toc-text">Hook任意函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%81%E8%A3%85%E6%88%90%E5%87%BD%E6%95%B0"><span class="toc-number">5.1.</span> <span class="toc-text">封装成函数</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/11/13/so/" title="so"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="so"/></a><div class="content"><a class="title" href="/2024/11/13/so/" title="so">so</a><time datetime="2024-11-13T12:48:22.000Z" title="发表于 2024-11-13 20:48:22">2024-11-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/03/%E5%AF%86%E7%A0%81%E5%AD%A6%E8%BF%9B%E9%98%B6/" title="密码学进阶"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="密码学进阶"/></a><div class="content"><a class="title" href="/2024/11/03/%E5%AF%86%E7%A0%81%E5%AD%A6%E8%BF%9B%E9%98%B6/" title="密码学进阶">密码学进阶</a><time datetime="2024-11-03T11:45:00.000Z" title="发表于 2024-11-03 19:45:00">2024-11-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/28/NDK%E5%BC%80%E5%8F%91/" title="NDK开发"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="NDK开发"/></a><div class="content"><a class="title" href="/2024/10/28/NDK%E5%BC%80%E5%8F%91/" title="NDK开发">NDK开发</a><time datetime="2024-10-28T12:57:19.000Z" title="发表于 2024-10-28 20:57:19">2024-10-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/24/%E5%AF%86%E7%A0%81%E5%AD%A6/" title="密码学"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="密码学"/></a><div class="content"><a class="title" href="/2024/10/24/%E5%AF%86%E7%A0%81%E5%AD%A6/" title="密码学">密码学</a><time datetime="2024-10-24T09:14:14.000Z" title="发表于 2024-10-24 17:14:14">2024-10-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/22/%E5%85%8Droot%E4%BD%BF%E7%94%A8frida/" title="免root使用frida"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="免root使用frida"/></a><div class="content"><a class="title" href="/2024/10/22/%E5%85%8Droot%E4%BD%BF%E7%94%A8frida/" title="免root使用frida">免root使用frida</a><time datetime="2024-10-22T11:54:10.000Z" title="发表于 2024-10-22 19:54:10">2024-10-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By lele</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
