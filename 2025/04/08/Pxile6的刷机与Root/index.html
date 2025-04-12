@@ -1,0 +1,283 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Pxile6的刷机与Root | Hexo</title><meta name="author" content="lele"><meta name="copyright" content="lele"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="学习目标：Root Piexl6刷机预备知识刷机的分类 线刷 官方包（刷的比较彻底，可以刷bootloader、radio） 卡刷 lineage os（双清）  刷机包的分类 线刷包&#x2F;工厂镜像包 OTA全量包&#x2F;OTA增量包  谷歌手机工厂镜像​	https:&#x2F;&#x2F;developers.google.com&#x2F;android&#x2F;images?hl&#x3D;zh-cn 线刷包的组成 bootl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pxile6的刷机与Root">
+<meta property="og:url" content="http://example.com/2025/04/08/Pxile6%E7%9A%84%E5%88%B7%E6%9C%BA%E4%B8%8ERoot/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="学习目标：Root Piexl6刷机预备知识刷机的分类 线刷 官方包（刷的比较彻底，可以刷bootloader、radio） 卡刷 lineage os（双清）  刷机包的分类 线刷包&#x2F;工厂镜像包 OTA全量包&#x2F;OTA增量包  谷歌手机工厂镜像​	https:&#x2F;&#x2F;developers.google.com&#x2F;android&#x2F;images?hl&#x3D;zh-cn 线刷包的组成 bootl">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
+<meta property="article:published_time" content="2025-04-08T04:39:24.000Z">
+<meta property="article:modified_time" content="2025-04-12T07:27:26.414Z">
+<meta property="article:author" content="lele">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="/image/tx.jpg"><link rel="canonical" href="http://example.com/2025/04/08/Pxile6%E7%9A%84%E5%88%B7%E6%9C%BA%E4%B8%8ERoot/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":230},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体中文","cht_to_chs":"你已切换为简体中文","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-right"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Pxile6的刷机与Root',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-04-12 15:27:26'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/tx.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">107</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Hexo"><img class="site-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/test.gif"/><span class="site-name">Hexo</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Pxile6的刷机与Root</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-04-08T04:39:24.000Z" title="发表于 2025-04-08 12:39:24">2025-04-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-04-12T07:27:26.414Z" title="更新于 2025-04-12 15:27:26">2025-04-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/AndroidRe1/">AndroidRe1</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Pxile6的刷机与Root"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="学习目标：Root-Piexl6"><a href="#学习目标：Root-Piexl6" class="headerlink" title="学习目标：Root Piexl6"></a>学习目标：Root Piexl6</h1><h2 id="刷机预备知识"><a href="#刷机预备知识" class="headerlink" title="刷机预备知识"></a>刷机预备知识</h2><h3 id="刷机的分类"><a href="#刷机的分类" class="headerlink" title="刷机的分类"></a>刷机的分类</h3><ul>
+<li>线刷 官方包（刷的比较彻底，可以刷bootloader、radio）</li>
+<li>卡刷 lineage os（双清）</li>
+</ul>
+<h3 id="刷机包的分类"><a href="#刷机包的分类" class="headerlink" title="刷机包的分类"></a>刷机包的分类</h3><ul>
+<li>线刷包&#x2F;工厂镜像包</li>
+<li>OTA全量包&#x2F;OTA增量包</li>
+</ul>
+<h3 id="谷歌手机工厂镜像"><a href="#谷歌手机工厂镜像" class="headerlink" title="谷歌手机工厂镜像"></a>谷歌手机工厂镜像</h3><p>​	<a target="_blank" rel="noopener" href="https://developers.google.com/android/images?hl=zh-cn">https://developers.google.com/android/images?hl=zh-cn</a></p>
+<h3 id="线刷包的组成"><a href="#线刷包的组成" class="headerlink" title="线刷包的组成"></a>线刷包的组成</h3><ul>
+<li>bootloader</li>
+<li>radio</li>
+<li>android系统</li>
+</ul>
+<h3 id="官方系统与aosp系统"><a href="#官方系统与aosp系统" class="headerlink" title="官方系统与aosp系统"></a>官方系统与aosp系统</h3><p><strong>区别</strong></p>
+<ul>
+<li><p>官方系统有google全家桶，aosp系统默认是没有的，需要另外集成</p>
+</li>
+<li><p>官方系统是user版本，aops系统可以是user、userdebug或eng，现在一般都使用user版本</p>
+</li>
+</ul>
+<p><strong>联系</strong></p>
+<ul>
+<li>不管是官方系统还是aosp系统，刷机步骤都是一样的</li>
+</ul>
+<h3 id="开启开发者选项"><a href="#开启开发者选项" class="headerlink" title="开启开发者选项"></a>开启开发者选项</h3><p>进入到设置 -&gt; 关于手机 -&gt; 点击7次版本号</p>
+<h3 id="开启usb调试"><a href="#开启usb调试" class="headerlink" title="开启usb调试"></a>开启usb调试</h3><p>进入到设置 -&gt; 系统 -&gt; 开发者选项 -&gt; 启用USB调试 -&gt; 信任设备</p>
+<h3 id="adb的简单使用"><a href="#adb的简单使用" class="headerlink" title="adb的简单使用"></a>adb的简单使用</h3><p><strong>首先要将adb添加到环境变量中</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb devices 查看电脑连接的设备</span><br><span class="line">adb reboot 重启</span><br><span class="line">adb reboot bootloader 重启进入到bootloader模式中</span><br></pre></td></tr></table></figure>
+
+<h3 id="进入bootloader模式"><a href="#进入bootloader模式" class="headerlink" title="进入bootloader模式"></a>进入bootloader模式</h3><p>关机状态下：长按关机键+音量键</p>
+<p>能进系统时：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb reboot bootloader</span><br></pre></td></tr></table></figure>
+
+<h2 id="刷机"><a href="#刷机" class="headerlink" title="刷机"></a>刷机</h2><h3 id="刷机的常规步骤"><a href="#刷机的常规步骤" class="headerlink" title="刷机的常规步骤"></a>刷机的常规步骤</h3><p>进入到bootloader模式，双击flash-all.bat即可</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/../image/fw1.png"></p>
+<p>为了更大程度的防止黑砖，通常会将bootloader_a 和 bootloader_b 都刷入一样的bootloader镜像</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fastboot --slot=other flash bootloader bootloader.img</span><br></pre></td></tr></table></figure>
+
+<h3 id="刷机相关命令"><a href="#刷机相关命令" class="headerlink" title="刷机相关命令"></a>刷机相关命令</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fastboot reboot 和 fastboot reboot bootloader</span><br><span class="line">fastboot flash bootloader bootloader.img</span><br><span class="line">fastboot flash radio radio.img</span><br><span class="line">fastboot -w update image-sailfish-qpla.191005.007.a3.zip</span><br></pre></td></tr></table></figure>
+
+<h4 id="单独刷某个分区镜像（分开刷要注意各分区镜像是否兼容）"><a href="#单独刷某个分区镜像（分开刷要注意各分区镜像是否兼容）" class="headerlink" title="单独刷某个分区镜像（分开刷要注意各分区镜像是否兼容）"></a>单独刷某个分区镜像（分开刷要注意各分区镜像是否兼容）</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fastboot flash boot boot.img</span><br><span class="line">fastboot flash system system.img</span><br><span class="line">fastboot flash system_b system_other.img</span><br><span class="line">fastboot flash vendor vendor.img</span><br></pre></td></tr></table></figure>
+
+<h4 id="批量刷某些分区镜像"><a href="#批量刷某些分区镜像" class="headerlink" title="批量刷某些分区镜像"></a>批量刷某些分区镜像</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fastboot flashall -w	需要设置ANDROID_PRODUCT_OUT环境变量，指向镜像所在目录</span><br></pre></td></tr></table></figure>
+
+<h2 id="刷机常见问题"><a href="#刷机常见问题" class="headerlink" title="刷机常见问题"></a>刷机常见问题</h2><h3 id="fastboot-devices无法识别设备"><a href="#fastboot-devices无法识别设备" class="headerlink" title="fastboot devices无法识别设备"></a>fastboot devices无法识别设备</h3><p>下载Google USB驱动(AndroidStudio中即可下载)</p>
+<p>此电脑 -&gt; 右键管理(或者win + x)  -&gt; 设备管理器 -&gt; 选中没有驱动的安卓设备 -&gt; 右键更新驱动程序 -&gt; 选择浏览我的电脑以查找驱动程序 -&gt; 找到驱动所在目录 -&gt; 确定安装即可</p>
+<h3 id="刷机失败"><a href="#刷机失败" class="headerlink" title="刷机失败"></a>刷机失败</h3><p>谷歌手机刷机就是一键的，很简单；如果刷机失败，通常是fastboot版本问题，更换版本试试；比如安卓13、安卓15手机使用platform-tools_r33.0.2的版本是没问题的</p>
+<h3 id="连接wifi后无法访问网络"><a href="#连接wifi后无法访问网络" class="headerlink" title="连接wifi后无法访问网络"></a>连接wifi后无法访问网络</h3><p>查看手机日期和时间是否正确</p>
+<h2 id="总结步骤"><a href="#总结步骤" class="headerlink" title="总结步骤"></a>总结步骤</h2><p>进入bootloader模式，执行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fastboot --slot=other flash bootloader bootloader.img</span><br></pre></td></tr></table></figure>
+
+<p>然后双击flash-all.bat</p>
+<h2 id="本人刷机过程中遇到的问题"><a href="#本人刷机过程中遇到的问题" class="headerlink" title="本人刷机过程中遇到的问题"></a>本人刷机过程中遇到的问题</h2><h4 id="计算机无法识别手机调试接口"><a href="#计算机无法识别手机调试接口" class="headerlink" title="计算机无法识别手机调试接口"></a>计算机无法识别手机调试接口</h4><p>错误状态：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/../image/fw2.png"></p>
+<p>正常状态：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/../image/fw3.png"></p>
+<p>在电脑设备管理器中，“adb interface” 指的是<strong>安卓调试桥接口</strong>。</p>
+<p>ADB（Android Debug Bridge）是一种用于与 Android 设备进行通信的工具，它允许开发者在电脑上通过命令行或其他工具与连接的 Android 设备进行交互，实现诸如安装应用程序、传输文件、调试应用等功能。当 Android 设备通过 USB 连接到电脑，并且设备的 USB 调试模式开启时，电脑的设备管理器中就可能会出现”<strong>ADB Interface</strong>“，表示电脑已经识别到了该 Android 设备的调试接口，并且可以通过 ADB 工具对设备进行相应的操作。</p>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>下载Android官方驱动压缩包（在此之前我已经在Android Studio中下载过了USB驱动了，且Pixel1能正常识别，Pixel6确无法识别，可能是驱动版本不匹配导致？）下载地址：<a target="_blank" rel="noopener" href="https://github.com/xushuan/google_latest_usb_driver_windows">GitHub - xushuan&#x2F;google_latest_usb_driver_windows</a></p>
+<p>找到android_winusb.inf文件，右键选择安装</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/../image/fw4.png"></p>
+<p>重启电脑后，即可正常识别到该 Android 设备的调试接口</p>
+<h4 id="进入到bootloader模式后无法识别"><a href="#进入到bootloader模式后无法识别" class="headerlink" title="进入到bootloader模式后无法识别"></a>进入到bootloader模式后无法识别</h4><p>只要将上一步驱动安装好后，更换一根质量高点的数据线便解决了…….</p>
+<h2 id="Apatch-root"><a href="#Apatch-root" class="headerlink" title="Apatch root"></a>Apatch root</h2><h3 id="现有的root方案"><a href="#现有的root方案" class="headerlink" title="现有的root方案"></a>现有的root方案</h3><ul>
+<li>Magisk root：容易被检测，但是很有多模块可以用</li>
+<li>KernelSU：内核级别的root方案，不容易被检测，兼容一部分Magisk模块，对内核有要求，需要P6设备及以上</li>
+<li>Apatch：内核级别的root方案，不容易被检测，兼容一部分Magisk模块</li>
+</ul>
+<p>推荐使用Apatch，并且每次都输入最新版本的Apatch，检测到的概率更小</p>
+<h3 id="Apatch下载"><a href="#Apatch下载" class="headerlink" title="Apatch下载"></a>Apatch下载</h3><p><a target="_blank" rel="noopener" href="https://github.com/bmax121/APatch">https://github.com/bmax121/APatch</a></p>
+<h3 id="Apatch-root方法"><a href="#Apatch-root方法" class="headerlink" title="Apatch root方法"></a>Apatch root方法</h3><h4 id="安装Apatch-app"><a href="#安装Apatch-app" class="headerlink" title="安装Apatch app"></a>安装Apatch app</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb install D:\BaiduNetdiskDownload\APatch_11039_11039-release-signed.apk</span><br></pre></td></tr></table></figure>
+
+<h3 id="将boot-img推送到手机的sdcard目录并改名为boot-img"><a href="#将boot-img推送到手机的sdcard目录并改名为boot-img" class="headerlink" title="将boot.img推送到手机的sdcard目录并改名为boot.img"></a>将boot.img推送到手机的sdcard目录并改名为boot.img</h3><p><strong>注意要与刷机使用的boot.img相同</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb push D:\BaiduNetdiskDownload\marlin-qp1a.191005.007.a3-factory-bef66533\marlin-qp1a.191005.007.a3\boot.img /sdcard/boot.img</span><br></pre></td></tr></table></figure>
+
+<h3 id="重打包boot-img，并设置密码"><a href="#重打包boot-img，并设置密码" class="headerlink" title="重打包boot.img，并设置密码"></a>重打包boot.img，并设置密码</h3><p>我设置的为a12345678</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd Download</span><br><span class="line">可以看到重打包好的boot.img文件</span><br></pre></td></tr></table></figure>
+
+<h3 id="将重打包后的boot-img拉取到电脑上并改名为bootnew-img"><a href="#将重打包后的boot-img拉取到电脑上并改名为bootnew-img" class="headerlink" title="将重打包后的boot.img拉取到电脑上并改名为bootnew.img"></a>将重打包后的boot.img拉取到电脑上并改名为bootnew.img</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb pull /sdcard/Download/apatch_patched_11039_0.11.2_acel.img</span><br><span class="line">/sdcard/Download/apatch_patched_11039_0.11.2_acel.img bootnew.img</span><br></pre></td></tr></table></figure>
+
+<h3 id="刷入新的boot-img到手机的boot分区"><a href="#刷入新的boot-img到手机的boot分区" class="headerlink" title="刷入新的boot.img到手机的boot分区"></a>刷入新的boot.img到手机的boot分区</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb reboot进入到bootloader模式</span><br><span class="line">fastboot flash boot D:\BaiduNetdiskDownload\marlin-qp1a.191005.007.a3-factory-bef66533\marlin-qp1a.191005.007.a3bootnew.img</span><br></pre></td></tr></table></figure>
+
+<h3 id="打开Apatch-app，输入密码启用"><a href="#打开Apatch-app，输入密码启用" class="headerlink" title="打开Apatch app，输入密码启用"></a>打开Apatch app，输入密码启用</h3><p>密码为a12345678</p>
+<p>点击超级密钥，输入密码后点击安装，Root就完成了</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">lele</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2025/04/08/Pxile6%E7%9A%84%E5%88%B7%E6%9C%BA%E4%B8%8ERoot/">http://example.com/2025/04/08/Pxile6%E7%9A%84%E5%88%B7%E6%9C%BA%E4%B8%8ERoot/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Hexo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/04/08/32%E4%BD%8D%E6%B1%87%E7%BC%96/" title="32位汇编"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">32位汇编</div></div></a></div><div class="next-post pull-right"><a href="/2025/04/06/BFS/" title="BFS"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">BFS</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87%EF%BC%9ARoot-Piexl6"><span class="toc-text">学习目标：Root Piexl6</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%B7%E6%9C%BA%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86"><span class="toc-text">刷机预备知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%B7%E6%9C%BA%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-text">刷机的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%B7%E6%9C%BA%E5%8C%85%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-text">刷机包的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%B7%E6%AD%8C%E6%89%8B%E6%9C%BA%E5%B7%A5%E5%8E%82%E9%95%9C%E5%83%8F"><span class="toc-text">谷歌手机工厂镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E5%88%B7%E5%8C%85%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-text">线刷包的组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%98%E6%96%B9%E7%B3%BB%E7%BB%9F%E4%B8%8Eaosp%E7%B3%BB%E7%BB%9F"><span class="toc-text">官方系统与aosp系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%90%AF%E5%BC%80%E5%8F%91%E8%80%85%E9%80%89%E9%A1%B9"><span class="toc-text">开启开发者选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%90%AFusb%E8%B0%83%E8%AF%95"><span class="toc-text">开启usb调试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#adb%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8"><span class="toc-text">adb的简单使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5bootloader%E6%A8%A1%E5%BC%8F"><span class="toc-text">进入bootloader模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%B7%E6%9C%BA"><span class="toc-text">刷机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%B7%E6%9C%BA%E7%9A%84%E5%B8%B8%E8%A7%84%E6%AD%A5%E9%AA%A4"><span class="toc-text">刷机的常规步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%B7%E6%9C%BA%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="toc-text">刷机相关命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E7%8B%AC%E5%88%B7%E6%9F%90%E4%B8%AA%E5%88%86%E5%8C%BA%E9%95%9C%E5%83%8F%EF%BC%88%E5%88%86%E5%BC%80%E5%88%B7%E8%A6%81%E6%B3%A8%E6%84%8F%E5%90%84%E5%88%86%E5%8C%BA%E9%95%9C%E5%83%8F%E6%98%AF%E5%90%A6%E5%85%BC%E5%AE%B9%EF%BC%89"><span class="toc-text">单独刷某个分区镜像（分开刷要注意各分区镜像是否兼容）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E5%88%B7%E6%9F%90%E4%BA%9B%E5%88%86%E5%8C%BA%E9%95%9C%E5%83%8F"><span class="toc-text">批量刷某些分区镜像</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%B7%E6%9C%BA%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-text">刷机常见问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fastboot-devices%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB%E8%AE%BE%E5%A4%87"><span class="toc-text">fastboot devices无法识别设备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%B7%E6%9C%BA%E5%A4%B1%E8%B4%A5"><span class="toc-text">刷机失败</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5wifi%E5%90%8E%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E7%BD%91%E7%BB%9C"><span class="toc-text">连接wifi后无法访问网络</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%E6%AD%A5%E9%AA%A4"><span class="toc-text">总结步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E4%BA%BA%E5%88%B7%E6%9C%BA%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">本人刷机过程中遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB%E6%89%8B%E6%9C%BA%E8%B0%83%E8%AF%95%E6%8E%A5%E5%8F%A3"><span class="toc-text">计算机无法识别手机调试接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5%E5%88%B0bootloader%E6%A8%A1%E5%BC%8F%E5%90%8E%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB"><span class="toc-text">进入到bootloader模式后无法识别</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Apatch-root"><span class="toc-text">Apatch root</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%B0%E6%9C%89%E7%9A%84root%E6%96%B9%E6%A1%88"><span class="toc-text">现有的root方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Apatch%E4%B8%8B%E8%BD%BD"><span class="toc-text">Apatch下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Apatch-root%E6%96%B9%E6%B3%95"><span class="toc-text">Apatch root方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Apatch-app"><span class="toc-text">安装Apatch app</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86boot-img%E6%8E%A8%E9%80%81%E5%88%B0%E6%89%8B%E6%9C%BA%E7%9A%84sdcard%E7%9B%AE%E5%BD%95%E5%B9%B6%E6%94%B9%E5%90%8D%E4%B8%BAboot-img"><span class="toc-text">将boot.img推送到手机的sdcard目录并改名为boot.img</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E6%89%93%E5%8C%85boot-img%EF%BC%8C%E5%B9%B6%E8%AE%BE%E7%BD%AE%E5%AF%86%E7%A0%81"><span class="toc-text">重打包boot.img，并设置密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E9%87%8D%E6%89%93%E5%8C%85%E5%90%8E%E7%9A%84boot-img%E6%8B%89%E5%8F%96%E5%88%B0%E7%94%B5%E8%84%91%E4%B8%8A%E5%B9%B6%E6%94%B9%E5%90%8D%E4%B8%BAbootnew-img"><span class="toc-text">将重打包后的boot.img拉取到电脑上并改名为bootnew.img</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%B7%E5%85%A5%E6%96%B0%E7%9A%84boot-img%E5%88%B0%E6%89%8B%E6%9C%BA%E7%9A%84boot%E5%88%86%E5%8C%BA"><span class="toc-text">刷入新的boot.img到手机的boot分区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%BC%80Apatch-app%EF%BC%8C%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81%E5%90%AF%E7%94%A8"><span class="toc-text">打开Apatch app，输入密码启用</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2025 By lele</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.8/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="30" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
